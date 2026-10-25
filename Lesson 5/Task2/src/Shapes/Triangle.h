@@ -1,9 +1,8 @@
 #ifndef TRIANGLE_H
 #define TRIANGLE_H
+#include "Shape.h"
 
-#include "IShape.h"
-
-class Triangle : public IShape 
+class Triangle : public Shape 
 {
 protected:
 

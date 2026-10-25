@@ -1,43 +1,57 @@
 #include <iostream>
 #include "Shapes/Triangle.h"
-#include "Shapes/RightangledTriangle.h"
-#include "Shapes/IsoscelesTriangle.h"
-#include "Shapes/EquilateralTriangle.h"
 #include "Shapes/Quadrangle.h"
-#include "Shapes/Rectangle.h"
-#include "Shapes/Rectangle.h"
-#include "Shapes/Square.h"
-#include "Shapes/Parallelogram.h"
-#include "Shapes/Rhombus.h"
+#include "Shapes/InvalidShapeException.h"
 
 int main() 
 {
-    std::cout << "Triangle:" << std::endl;
-    printInfo(new Triangle(2, 3, 4, 30, 40, 50));
+    try
+    {
+        std::cout << "Triangle 1:" << std::endl;
+        Triangle* sh1 = new Triangle(3, 4, 5, 30, 60, 90);
+        sh1->printInfo();
+        delete sh1;
+    }
+    catch(const ShapeCreationError& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 
-    std::cout << "Right-angled triangle:" << std::endl;
-    printInfo(new RightangledTriangle(2, 3, 4, 30, 40));
+    try
+    {
+        std::cout << "Triangle 2:" << std::endl;
+        Triangle* sh2 = new Triangle(3, 4, 5, 70, 60, 90);
+        sh2->printInfo();
+        delete sh2;
+    }
+    catch(const ShapeCreationError& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 
-    std::cout << "Isosceles triangle:" << std::endl;
-    printInfo(new IsoscelesTriangle(2, 3, 30, 40));
+    try
+    {
+        std::cout << "Quadrangle 1:" << std::endl;
+        Quadrangle* sh3 = new Quadrangle(3, 4, 5, 6, 60, 60, 90, 150);
+        sh3->printInfo();
+        delete sh3;
+    }
+    catch(const ShapeCreationError& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 
-    std::cout << "Equilateral triangle:" << std::endl;
-    printInfo(new EquilateralTriangle(2));
-
-    std::cout << "Quadrilateral:" << std::endl;
-    printInfo(new Quadrangle(2, 3, 4, 5, 30, 40, 50, 60));
-
-    std::cout << "Rectangle:" << std::endl;
-    printInfo(new Rectangle(2, 3));
-
-    std::cout << "Square:" << std::endl;
-    printInfo(new Square(2));
-
-    std::cout << "Parallelogram:" << std::endl;
-    printInfo(new Parallelogram(2, 3, 30, 40));
-
-    std::cout << "Rhombus:" << std::endl;
-    printInfo(new Rhombus(2, 40, 80));
+    try
+    {
+        std::cout << "Quadrangle 2:" << std::endl;
+        Quadrangle* sh4 = new Quadrangle(3, 4, 5, 6, 120, 100, 90, 150);
+        sh4->printInfo();
+        delete sh4;
+    }
+    catch(const ShapeCreationError& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 
     return EXIT_SUCCESS;
 }

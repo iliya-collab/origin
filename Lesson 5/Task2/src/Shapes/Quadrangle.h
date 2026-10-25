@@ -1,9 +1,8 @@
 #ifndef QUADRANGLE_H
 #define QUADRANGLE_H
+#include "Shape.h"
 
-#include "IShape.h"
-
-class Quadrangle : public IShape
+class Quadrangle : public Shape
 {
 protected:
 

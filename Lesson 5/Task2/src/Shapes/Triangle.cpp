@@ -4,8 +4,11 @@
 
 Triangle::Triangle(double a, double b, double c, 
             double A, double B, double C) 
-    : m_a(a), m_b(b), m_c(c), m_A(A), m_B(B), m_C(C), IShape() 
+    : m_a(a), m_b(b), m_c(c), m_A(A), m_B(B), m_C(C), Shape(3) 
 {
+    if (m_sidesCount != 3)
+        throw InvalidTriangleError("The number of sides in a triangle must be equal to 3.");
+
     if (a <= 0 || b <= 0 || c <= 0) 
         throw InvalidTriangleError("Sides must be greater than zero.");
 
@@ -18,8 +21,7 @@ Triangle::Triangle(double a, double b, double c,
     double sum_of_angles = A + B + C;
         
     if (std::abs(sum_of_angles - 180.0) > 0.001)
-        throw InvalidTriangleError("The sum of angles must be exactly 180 degrees. Current sum: " 
-                                        + std::to_string(sum_of_angles));
+        throw InvalidTriangleError("The sum of angles must be exactly 180 degrees.");
 
 }
 
@@ -32,6 +34,7 @@ double Triangle::getAngleC() const { return m_C; }
 
 void Triangle::printInfo() const 
 {
+    Shape::printInfo();
     std::cout << "Sides: a=" << m_a << " , b=" << m_b << " , c=" << m_c << '\n'
                 << "Angles: A=" << m_A << " , B=" << m_B << " , C=" << m_C << std::endl;
 }

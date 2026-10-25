@@ -12,7 +12,7 @@ public:
 
 class InvalidTriangleError : public ShapeCreationError {
 public:
-    InvalidTriangleError(const std::string& reason)
+    explicit InvalidTriangleError(const std::string& reason)
         : ShapeCreationError("Triangle creation failed: " + reason) {}
 };
 
