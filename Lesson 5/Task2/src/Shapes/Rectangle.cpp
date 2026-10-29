@@ -10,6 +10,6 @@ Rectangle::Rectangle(double a, double b)
     if (m_b != m_d)
         throw InvalidQuadrilateralError("Sides b and d must be equal.");
 
-    if ((m_A == 90 && m_B == 90 && m_C == 90 && m_D == 90))
+    if (m_A != 90 || m_B != 90 || m_C != 90 || m_D != 90)
         throw InvalidQuadrilateralError("All angles must be equal 90.");
 }
