@@ -1,0 +1,9 @@
+file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
+file(GLOB_RECURSE HEADERS CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/inc/*.h")
+
+add_library(Shapes SHARED ${SOURCES} ${HEADERS})
+
+target_compile_definitions(Shapes PRIVATE SHAPE_API_DLL)
+
+target_include_directories(Shapes PUBLIC 
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/inc>)
