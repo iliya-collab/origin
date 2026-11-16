@@ -6,6 +6,8 @@
 #include <iostream>
 #include <type_traits>
 #include <numeric>
+#include <stdexcept>
+#include <typeinfo>
 
 template <typename T>
 class ExtArray
@@ -50,9 +52,6 @@ public:
 
 	double mean(size_t begin, size_t end)
 	{
-		if (begin < 0 || end < 0)
-			throw std::invalid_argument("The values ​​of begin and end must be non-negative");	
-		
 		if (begin >= _size || end > _size)
 			throw std::invalid_argument("The values ​​of begin and end must be less than size array");
 

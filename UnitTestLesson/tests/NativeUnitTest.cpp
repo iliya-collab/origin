@@ -76,9 +76,14 @@ TEST(ExtendedArrayTestWithCheckSum, CheckSumWithInvalidValue) {
         "The array must contain only 1 or 0");
 }
 
-TEST(ExtendedArrayTestWithCheckSum, CheckSum) {
+TEST(ExtendedArrayTestWithCheckSum, CheckSumInt) {
     ExtArray<int> v{ 1, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0 };
     EXPECT_EQ(v.checkSum(), 8);
+}
+
+TEST(ExtendedArrayTestWithCheckSum, CheckSumBool) {
+    ExtArray<bool> v{ true, true, true, false, true, false };
+    EXPECT_EQ(v.checkSum(), 4);
 }
 
 } // NativeUnitTest

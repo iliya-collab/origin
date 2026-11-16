@@ -8,7 +8,7 @@ void ExpectExactThrow(Fn&& f, const char* expectedMsg = nullptr)
     }
     catch(const std::exception& e)
     {
-        EXPECT_EQ(typeid(e), typeid(Ex)) << "Thrown: " << typeid(e).name;
+        EXPECT_EQ(typeid(e), typeid(Ex)) << "Thrown: " << typeid(e).name();
         if (expectedMsg)
             EXPECT_STREQ(e.what(), expectedMsg);
     }
